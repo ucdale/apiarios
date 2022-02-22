@@ -1,13 +1,66 @@
-const express = require("express");
+// const express = require("express");
 
-const PORT = process.env.PORT || 3001;
+// const PORT = process.env.PORT || 3001;
 
-const app = express();
+// const app = express();
+
+// app.get("/api", (req, res) => {
+//   res.json({ message: "Hello from apiarios!" });
+// });
+
+// app.listen(PORT, () => {
+//   console.log(`Server listening on ${PORT}`);
+// });
+
+
+const express = require('express');
+const path = require('path');
+const app = express(),
+      bodyParser = require("body-parser");
+      port = process.env.PORT || 3001;
+
+// place holder for the data
+const users = [
+  {
+    firstName: "first1",
+    lastName: "last1",
+    email: "abc@gmail.com"
+  },
+  {
+    firstName: "first2",
+    lastName: "last2",
+    email: "abc@gmail.com"
+  },
+  {
+    firstName: "first3",
+    lastName: "last3",
+    email: "abc@gmail.com"
+  }
+];
+
+app.use(bodyParser.json());
+app.use(express.static(process.cwd()+"/client/build/"));
+
+app.get('/api/users', (req, res) => {
+  console.log('api/users called!')
+  res.json(users);
+});
+
+app.post('/api/user', (req, res) => {
+  const user = req.body.user;
+  console.log('Adding user:::::', user);
+  users.push(user);
+  res.json("user addedd");
+});
+
+app.get('/', (req,res) => {
+  res.sendFile(process.cwd()+"/client/build/index.html");
+});
 
 app.get("/api", (req, res) => {
   res.json({ message: "Hello from apiarios!" });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server listening on ${PORT}`);
+app.listen(port, () => {
+    console.log(`Server listening on the port::${port}`);
 });
