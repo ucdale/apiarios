@@ -39,7 +39,8 @@ const users = [
 ];
 
 app.use(bodyParser.json());
-app.use(express.static(process.cwd()+"/client/build/"));
+app.use(express.static(
+  path.join(__dirname,"../client/build")));
 
 app.get('/api/users', (req, res) => {
   console.log('api/users called!')
