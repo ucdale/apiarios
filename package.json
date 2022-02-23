@@ -1,12 +1,11 @@
 {
-  "name": "apiarios",
+  "name": "react-node",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "start:react": "parcel serve client/index.html --open --dist-dir client/build",
-    "start": "node server/index.js",
-    "build": "parcel build client/index.html --dist-dir client/build"
+      "start:react": "parcel serve client/index.html --open --dist-dir client/build",
+      "start": "node server/index.js",
+      "build": "parcel build client/index.html --dist-dir client/build"
   },
   "repository": {
     "type": "git",
