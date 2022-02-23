@@ -21,29 +21,15 @@ jobs:
         with:
           node-version: '16.x'
 
-      - name: Node npm install, build, and test
+      - name: npm install, build, and test
         run: |
           npm install
           npm run build --if-present
           npm run test --if-present
-
-      - name: Node Upload artifact for deployment job
+      - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: .
-          
-      - name: React npm install, build, and test
-        working-directory: ./client
-        run: |
-          npm install
-          CI='' npm run build --if-present
-          npm run test --if-present
-
-      - name: React Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
-        with:
-          name: react-app
           path: .
 
   deploy:
@@ -54,15 +40,10 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-      - name: Download artifact node from build job
+      - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
           name: node-app
-          
-      - name: Download artifact react from build job
-        uses: actions/download-artifact@v2
-        with:
-          name: react-app
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
