@@ -1,31 +1,25 @@
-import React, { useCallback, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import useFetch from './useFetch';
 
-const App = () => {
-  const [data, setData] = useState(null);
-
-  React.useEffect(() => {
-    fetch("/api")
-      .then((res) => res.json())
-      .then((data) => setData(data.message));
-  }, []);
+function App() {
+  const [data, loading] = useFetch('/api');
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>{!data ? "Loading..." : data}</p>
-        {/* <p>
+        <p>
           Edit <code>src/App.js</code> and save to reload.
-        </p> */}
+        </p>
+        <p>{loading ? 'loading...'  : data.message}</p>
         <a
           className="App-link"
-          href="https://it.wikipedia.org/wiki/Application_programming_interface"
+          href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
-         Cosa sono le API
+          Learn React
         </a>
       </header>
     </div>

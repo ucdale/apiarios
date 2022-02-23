@@ -1,4 +1,7 @@
+# dev dependencies
 node_modules
 client/node_modules
-client/build
 .parcel-cache
+
+# builds
+client/build
