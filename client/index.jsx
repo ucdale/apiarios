@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import App from './src/App';
 import './src/index.css';
 import reportWebVitals from './src/reportWebVitals';
+import { HashRouter } from 'react-router-dom';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <HashRouter>
+        <App />
+  </HashRouter>,
   document.getElementById('root')
 );
 
