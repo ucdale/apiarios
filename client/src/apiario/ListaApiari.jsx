@@ -15,7 +15,7 @@ const ListaApiari =() => {
             {id:3, nome: "Apiario di prova 2", descrizione: "Cordovado"},
         ])
     }
-  },[listaApiari]);
+  },[listaApiari ]);
 
   return (
     <div className="App">
@@ -25,19 +25,14 @@ const ListaApiari =() => {
           Lista Apiari
         </h1>
         {loading ? <div>loading...</div>  
-        : (<ul>
-            {listaApiari.map(apiario => <li key={apiario.id}> {apiario.nome} {apiario.descrizione} </li>)}
-            data.message
+        : (
+          <div>
+            <ul>
+              {listaApiari.map(apiario => <li key={apiario.id}> {apiario.nome} {apiario.descrizione} </li>)}
+              data.message
             </ul>
-            )}
-        <a
-          className="App-link"
-          href="https://it.wikipedia.org/wiki/Application_programming_interface"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Cosa sono le API
-        </a>
+          </div>
+          )}
       </header>
     </div>
   );
