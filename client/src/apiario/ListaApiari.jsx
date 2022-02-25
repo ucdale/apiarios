@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import logo from './logo.svg';
-import './App.css';
-import useFetch from './useFetch';
+import logo from '../logo.svg';
+import '../App.css';
+import useFetch from '../useFetch';
 
 const ListaApiari =() => {
   const [listaApiari, setListaApiari] = useState([]);
