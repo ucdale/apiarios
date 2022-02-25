@@ -6,8 +6,8 @@ import useFetch from './useFetch';
 const ListaApiari =() => {
   const [listaApiari, setListaApiari] = useState([]);
   const [loading, setLoading] = useState(true);
-  
-  useEffect(()=>{ 
+
+  useEffect(()=>{
     if(listaApiari.length === 0){
         // get lista apiari
         setListaApiari([
@@ -24,7 +24,7 @@ const ListaApiari =() => {
         <h1>
           Lista Apiari
         </h1>
-        {loading ? <div>loading...</div>  
+        {loading ? <div>loading...</div>
         : (
           <div>
             <ul>
