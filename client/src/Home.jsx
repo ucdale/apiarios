@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import useFetch from './useFetch';
+import { Link } from 'react-router-dom';
 
 const Home =() => {
   const [data, loading] = useFetch('/api');
@@ -12,6 +13,7 @@ const Home =() => {
         <p>
           Ciao per ora questa sarà la home page
         </p>
+        <Link to="/lista">Lista Apiari</Link>
         <p>{loading ? 'loading...'  : data.message}</p>
         <a
           className="App-link"
